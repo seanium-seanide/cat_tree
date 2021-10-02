@@ -10,7 +10,7 @@ using std::cerr;
 using std::endl;
 
 Game::Game()
-: m_pWindow(nullptr), m_pRenderer(nullptr), m_running(false) {
+: m_pWindow(nullptr), m_pRenderer(nullptr), m_running(false), m_lastFrameTime(0) {
 }
 
 Game::~Game() {
@@ -82,6 +82,22 @@ void Game::input() {
 }
 
 void Game::update() {
+    double elapsedTime;
+    double waitTime;
+    double deltaTime;
+
+    // Clamp frame rate
+    elapsedTime = SDL_GetTicks() - m_lastFrameTime;
+    waitTime = (elapsedTime < FRAME_TIME) ? FRAME_TIME - elapsedTime : 0;
+    SDL_Delay(waitTime);
+    
+    // Get time elapsed since end of last frame
+    deltaTime = SDL_GetTicks() - m_lastFrameTime;
+    
+    // Update game entities
+    
+    // Timing
+    m_lastFrameTime = SDL_GetTicks();
 }
 
 void Game::render() {

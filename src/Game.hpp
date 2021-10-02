@@ -21,6 +21,9 @@ class Game {
         bool m_running;
         SDL_Window *m_pWindow;
         SDL_Renderer *m_pRenderer;
+
+        // Timing
+        double m_lastFrameTime;
 };
 
 #endif
