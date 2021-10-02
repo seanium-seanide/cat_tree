@@ -44,9 +44,15 @@ void Game::init() {
         cerr << "Failed to create renderer: " << SDL_GetError() << endl;
         exit(1);
     }
+
+    // Initialize m_renderUtils
+    m_renderUtils.init(m_pRenderer);
     
     // Start the game
     m_running = true;
+
+    // Load cat
+    m_pCat = m_renderUtils.loadTexture("assets/cat.png");
 }
 
 void Game::clean() {
@@ -106,6 +112,9 @@ void Game::render() {
 
     // Clear the display to cornflowerblue
     SDL_RenderClear(m_pRenderer);
+
+    // Bareback render
+    m_renderUtils.render(m_pCat, 100, 100, 64, 64);
     
     // Flip the back buffer
     SDL_RenderPresent(m_pRenderer);

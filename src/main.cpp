@@ -6,6 +6,7 @@
 int main() {
     Game *game = new Game(); 
 
+    //(*game).init();
     game->init();
 
     while (game->isRunning()) {

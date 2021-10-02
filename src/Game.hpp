@@ -2,6 +2,7 @@
 #define GAME_HPP
 
 #include <SDL2/SDL.h>
+#include "RenderUtils.hpp"
 
 class Game {
     public:
@@ -24,6 +25,12 @@ class Game {
 
         // Timing
         double m_lastFrameTime;
+
+        // Temporary texture
+        SDL_Texture *m_pCat;
+
+        // Utilities
+        RenderUtils m_renderUtils;
 };
 
 #endif
