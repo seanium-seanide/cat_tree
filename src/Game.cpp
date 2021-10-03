@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "main.hpp"
-#include "Entity.hpp"
+#include "Player.hpp"
 
 using std::cerr;
 using std::endl;
@@ -14,10 +14,12 @@ Game::Game()
 : m_pWindow(nullptr), m_pRenderer(nullptr), m_running(false), m_lastFrameTime(0) {
     init();
 
-    m_pCatEntity = new Entity(&m_renderUtils, "assets/cat.png", 64, 64);
+    // Make entities
+    m_pCatEntity = new Player(&m_renderUtils, "assets/cat.png", 64, 64);
 }
 
 Game::~Game() {
+    clean();
 }
 
 void Game::init() {
@@ -85,6 +87,9 @@ void Game::input() {
             default:
                 break;
         }
+
+        // Entity events
+        m_pCatEntity->input(&event);
     }
 }
 
@@ -114,8 +119,7 @@ void Game::render() {
     // Clear the display to cornflowerblue
     SDL_RenderClear(m_pRenderer);
 
-    // Bareback render
-    m_renderUtils.render(m_pCat, 100, 100, 64, 64);
+    m_pCatEntity->render();
     
     // Flip the back buffer
     SDL_RenderPresent(m_pRenderer);

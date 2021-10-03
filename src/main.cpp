@@ -12,7 +12,5 @@ int main() {
         game->render();
     }
 
-    game->clean();
-
     return 0;
 }

@@ -2,6 +2,7 @@
 #define ENTITY_HPP
 
 #include <SDL2/SDL.h>
+#include "RenderUtils.hpp"
 
 class Entity {
     public:
@@ -13,13 +14,22 @@ class Entity {
         );
         ~Entity();
 
-        void setPosition(int x, int y);
-        void setVelocity(int x, int y);
-        void input();
-        void update();
-        void render();
+        // Accessors
+        void setPosition(int x, int y) {
+            m_x = x;
+            m_y = y;
+        };
+        void setVelocity(int x, int y) {
+            m_xVelocity = x;
+            m_yVelocity = y;
+        }
 
-    private:
+        // Game loop
+        virtual void input(SDL_Event *event) = 0;
+        virtual void update() = 0;
+        virtual void render() = 0;
+
+    protected:
         RenderUtils *m_pRenderUtils;
         SDL_Texture *m_pTexture;
         int m_x;

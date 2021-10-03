@@ -1,6 +1,7 @@
 #include "Entity.hpp"
 #include <string>
 #include "RenderUtils.hpp"
+#include <SDL2/SDL.h>
 
 Entity::Entity(
     RenderUtils *renderUtils, 
@@ -19,17 +20,7 @@ Entity::~Entity() {
     SDL_DestroyTexture(m_pTexture);
 }
 
-void Entity::setPosition(int x, int y) {
-    m_x = x;
-    m_y = y;
-}
-
-void Entity::setVelocity(int x, int y) {
-    m_xVelocity = x;
-    m_yVelocity = y;
-}
-
-void Entity::input() {
+void Entity::input(SDL_Event *event) {
 }
 
 void Entity::update() {

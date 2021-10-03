@@ -3,6 +3,7 @@
 
 #include <SDL2/SDL.h>
 #include "RenderUtils.hpp"
+#include "Player.hpp"
 
 class Game {
     public:
@@ -31,6 +32,9 @@ class Game {
 
         // Utilities
         RenderUtils m_renderUtils;
+
+        // Entities
+        Player *m_pCatEntity;
 };
 
 #endif
