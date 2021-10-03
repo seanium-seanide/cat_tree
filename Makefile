@@ -29,3 +29,7 @@ clean:
 run:
 	./$(BIN)
 
+.PHONY: rebuild
+rebuild:
+	make clean && make && make run
+
