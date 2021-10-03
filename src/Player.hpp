@@ -4,6 +4,8 @@
 #include "Entity.hpp"
 #include <SDL2/SDL.h>
 
+const float MOVE_VELOCITY = 5;
+
 class Player : public Entity {
     public:
         Player(
@@ -19,9 +21,7 @@ class Player : public Entity {
         void update();
         void render();
 
-    private:
-        int row;
-        int col;
+        void drawFrame();
 };
 
 #endif

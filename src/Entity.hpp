@@ -10,7 +10,7 @@ class Entity {
             RenderUtils *renderUtils, 
             std::string fileName, 
             int width, 
-            int height
+            int height,
         );
         ~Entity();
 
@@ -23,6 +23,12 @@ class Entity {
             m_xVelocity = x;
             m_yVelocity = y;
         }
+        void setFrameWidth(int width) {
+            m_frameWidth = width;
+        }
+        void setFrameHeight(int height) {
+            m_frameHeight = height;
+        }
 
         // Game loop
         virtual void input(SDL_Event *event) = 0;
@@ -32,12 +38,16 @@ class Entity {
     protected:
         RenderUtils *m_pRenderUtils;
         SDL_Texture *m_pTexture;
-        int m_x;
-        int m_y;
-        int m_xVelocity;
-        int m_yVelocity;
+        float m_x;
+        float m_y;
+        float m_xVelocity;
+        float m_yVelocity;
+        int m_frameWidth;
+        int m_frameHeight;
         int m_width;
         int m_height;
+        int m_frame;
+        int m_textureRow;
 };
 
 #endif
