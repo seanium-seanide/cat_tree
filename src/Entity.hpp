@@ -1,5 +1,7 @@
-#ifndef SPRITE_HPP
-#define SPRITE_HPP
+#ifndef ENTITY_HPP
+#define ENTITY_HPP
+
+#include <SDL2/SDL.h>
 
 class Entity {
     public:
