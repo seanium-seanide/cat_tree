@@ -55,7 +55,7 @@ void RenderUtils::renderFrame(
     int width,
     int height,
     int destinationX,
-    int destinationY,
+    int destinationY
 ) {
     SDL_Rect sourceRect = {sourceX, sourceY, width, height};
     SDL_Rect destinationRect = {destinationX, destinationY, width, height};

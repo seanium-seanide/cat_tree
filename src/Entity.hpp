@@ -10,7 +10,7 @@ class Entity {
             RenderUtils *renderUtils, 
             std::string fileName, 
             int width, 
-            int height,
+            int height
         );
         ~Entity();
 

@@ -28,7 +28,7 @@ class RenderUtils {
             int width,
             int height,
             int destinationX,
-            int destinationY,
+            int destinationY
         );
 
     private:
