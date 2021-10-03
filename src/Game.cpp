@@ -5,12 +5,16 @@
 #include <cstdlib>
 #include <iostream>
 #include "main.hpp"
+#include "Entity.hpp"
 
 using std::cerr;
 using std::endl;
 
 Game::Game()
 : m_pWindow(nullptr), m_pRenderer(nullptr), m_running(false), m_lastFrameTime(0) {
+    init();
+
+    m_pCatEntity = new Entity(&m_renderUtils, "assets/cat.png", 64, 64);
 }
 
 Game::~Game() {
@@ -50,9 +54,6 @@ void Game::init() {
     
     // Start the game
     m_running = true;
-
-    // Load cat
-    m_pCat = m_renderUtils.loadTexture("assets/cat.png");
 }
 
 void Game::clean() {
