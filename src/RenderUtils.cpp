@@ -47,3 +47,17 @@ SDL_Texture *RenderUtils::loadTexture(std::string filename) {
     
     return pTexture;
 }
+
+void RenderUtils::renderFrame(
+    SDL_Texture *pTexture,
+    int sourceX,
+    int sourceY,
+    int width,
+    int height,
+    int destinationX,
+    int destinationY,
+) {
+    SDL_Rect sourceRect = {sourceX, sourceY, width, height};
+    SDL_Rect destinationRect = {destinationX, destinationY, width, height};
+    SDL_RenderCopy(m_pRenderer, pTexture, &sourceRect, &destinationRect);
+}

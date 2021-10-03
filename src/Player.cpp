@@ -7,7 +7,7 @@ Player::Player(
     int width, 
     int height
 )
-: Entity::Entity(renderUtils, fileName, width, height) { 
+: Entity::Entity(renderUtils, fileName, width, height), row(0), col(0) { 
 }
 
 Player::~Player() {

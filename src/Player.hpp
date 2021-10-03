@@ -20,6 +20,8 @@ class Player : public Entity {
         void render();
 
     private:
+        int row;
+        int col;
 };
 
 #endif

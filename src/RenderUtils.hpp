@@ -21,6 +21,16 @@ class RenderUtils {
             int height
         );
 
+        void renderFrame(
+            SDL_Texture *pTexture,
+            int sourceX,
+            int sourceY,
+            int width,
+            int height,
+            int destinationX,
+            int destinationY,
+        );
+
     private:
         SDL_Renderer *m_pRenderer;
 };
